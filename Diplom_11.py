@@ -1,9 +1,9 @@
 import csv
 
 def main():
-    with open('Data.csv', 'r', encoding='utf-8') as f:
+    with open('data.csv', 'r', encoding='utf-8') as f:
         fields = ['first_name', 'last_name', 'birthday', 'place birthday', 'phone number', 'email']
-        reader = csv.DictReader(f, fields, delimiter=';')
+        reader = csv.DictReader(f, fields, delimiter=',')
         for row in reader:
             print(row)
                 
@@ -11,3 +11,6 @@ def main():
 
 if __name__ == '__main__':
     main()
+
+
+    #чтение базы данных клиентов

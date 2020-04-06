@@ -19,8 +19,19 @@ def main():
         fields = ['first_name', 'last_name', 'birthday', 'place birthday', 'phone number', 'email']
         reader = csv.DictReader(f, fields, delimiter=',')
         for row in reader:
+
+            #search_string=(
+                #f'{first_name} '
+                #f'{last_name}'
+               # )
+            search_string=(
+                f'row['first_name'] '
+                f'row['last_name']'
+                )
+            
+            print(search_string)
             #print(row['first_name'], row['last_name'])
-            users = tools.get_all('users.search', 1000, values={'q': row['last_name']})
+            #users = tools.get_all('users.search', 1000, values={'q': row['last_name']})
 
         pass
 

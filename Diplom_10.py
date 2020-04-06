@@ -15,11 +15,10 @@ def main():
     tools = vk_api.VkTools(vk_session)
 
   
-    users = tools.get_all('users.search', 1000, values={'q': 'Женечка Владимирова', 'birth_day': '01', 'birth_month': '04','birth_year': '1987'}, key={'count', 'items', 'first_name','last_name', 'city', 'contacts'} )
+    users = tools.get_all('users.search', 1000, values={'q': 'Женечка Владимирова', 'fields':{'bdate':'01.04.1987'}})
     
-    #users_search={'id': '', 'first_name': '', 'last_name': ''}
-        #users_list = users[0]['id']
-    
+    #'birth_day': '01', 'birth_month': '04','birth_year': '1987'
+       
     #x=users.keys()
     for x in users.items(): 
         print (x)

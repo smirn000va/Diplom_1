@@ -22,9 +22,13 @@ def main():
 
             search_string=f"{row['first_name']} {row['last_name']}"
 
+            search_birthday=f"{row['birthday']}".split('.')
+
             #print(search_string)
             
-            users = tools.get_all('users.search', 1000, values= {'q': search_string})
+            #print(search_birthday)
+
+            users = tools.get_all('users.search', 1000, values={'q': search_string, 'birth_day': search_birthday[1], 'birth_month': search_birthday[2], 'birth_year': search_birthday[3], 'fields': ['bdate', 'contacts', 'city', 'connections', 'followers_count']})
         
             for x in users.items(): 
                 print(x)

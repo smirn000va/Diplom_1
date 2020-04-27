@@ -1,5 +1,6 @@
 import csv
 import vk_api
+from datetime import datetime
 
 def main():
    
@@ -15,23 +16,36 @@ def main():
     tools = vk_api.VkTools(vk_session)
     
     
-    with open('data_3.csv', 'r', encoding='utf-8') as f:
+    with open('data_copy.csv', 'r', encoding='utf-8') as f:
         fields = ['first_name', 'last_name', 'birthday', 'place birthday', 'phone number', 'email']
         reader = csv.DictReader(f, fields, delimiter=',')
         for row in reader:
 
             search_string=f"{row['first_name']} {row['last_name']}"
 
-            search_birthday=f"{row['birthday']}".split('.')
+            #search_birthday=f"{row['birthday']}".split('/')
+            search_birthday=f"{row['birthday']}"
+
+            if len(search_birthday) > 0:
+
+                data_search_birthday = search_birthday.strptime ('%m/%d/%Y')
+
+            #users_dict = dict()
+                      
+            #if len(search_birthday) > 0:
+
+               # users_dict['birth_day'] = search_birthday
+                #users_dict['birth_month'] = search_birthday
+                #users_dict['birth_year'] = search_birthday
 
             #print(search_string)
             
-            #print(search_birthday)
+            print(data_search_birthday)
 
-            users = tools.get_all('users.search', 1000, values={'q': search_string, 'birth_day': search_birthday[1], 'birth_month': search_birthday[2], 'birth_year': search_birthday[3], 'fields': ['bdate', 'contacts', 'city', 'connections', 'followers_count']})
+            #users = tools.get_all('users.search', 1000, values={'q': search_string, 'birth_day': search_birthday[1], 'birth_month': search_birthday[2], 'birth_year': search_birthday[3], 'fields': ['bdate', 'contacts', 'city', 'connections', 'followers_count']})
         
-            for x in users.items(): 
-                print(x)
+            #for x in users.items(): 
+            #    print(x)
 
         pass
 

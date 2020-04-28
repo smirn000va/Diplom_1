@@ -14,8 +14,7 @@ def main():
         return
 
     tools = vk_api.VkTools(vk_session)
-    
-    
+        
     with open('data_copy.csv', 'r', encoding='utf-8') as f:
         fields = ['first_name', 'last_name', 'birthday', 'place birthday', 'phone number', 'email']
         reader = csv.DictReader(f, fields, delimiter=',')

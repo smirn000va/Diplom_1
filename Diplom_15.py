@@ -24,9 +24,7 @@ def main():
 
             search_birthday=f"{row['birthday']}"
         
-        break
-
-            if len(search_birthday) > 0:
+                if len(search_birthday) > 0:
 
                 data_search_birthday = datetime.strptime (search_birthday, '%m/%d/%y')
 
@@ -41,13 +39,11 @@ def main():
 
                 print(data_id)
 
-            break 
-        
             #friends = tools.get_all('friends.get', 1000, values={'q': search_string, 'birth_day': data_search_birthday.day, 'birth_month': data_search_birthday.month, 'birth_year': data_search_birthday.year})
         
             #friends_count = friends['count']
 
-            #wall = tools.get_all('wall.get', 1000, values={'owner_id': items= ['id']})
+            #wall = tools.get_all('wall.get', 1000, values={'owner_id': items= data_id})
         
             #wall_count = wall['count']
 

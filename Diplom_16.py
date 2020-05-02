@@ -44,16 +44,25 @@ def main():
 
             users = tools.get_all('users.search', 1000, values={'q': search_string, 'birth_day': data_search_birthday.day, 'birth_month': data_search_birthday.month, 'birth_year': data_search_birthday.year, 'fields': ['bdate', 'contacts', 'city', 'connections', 'followers_count']})
             
-            friends = tools.get_all('friends.get', 1000, values={'q': search_string, 'birth_day': data_search_birthday.day, 'birth_month': data_search_birthday.month, 'birth_year': data_search_birthday.year, 'fields': ['bdate', 'contacts', 'city', 'connections', 'followers_count']})
-        
-            friends_count = friends['count']
+            users_list = users.get ('items')
 
-            wall = tools.get_all('wall.get', 1000, values={'q': search_string, 'birth_day': data_search_birthday.day, 'birth_month': data_search_birthday.month, 'birth_year': data_search_birthday.year})
-        
-            wall_count = wall['count']
+            for person in users_list:
 
-            print (friends_count)  
-            print (wall_count)
+                data_id= users_list [id]
+
+                print(data_id)
+            
+            
+            #friends = tools.get_all('friends.get', 1000, values={'owner_id': items= data_id})
+        
+            #friends_count = friends['count']
+
+            #wall = tools.get_all('wall.get', 1000, values={'owner_id': items= data_id})
+        
+            #wall_count = wall['count']
+
+            #print (friends_count)  
+            #print (wall_count)
 
             for x in users.items(): 
                 print(x)
